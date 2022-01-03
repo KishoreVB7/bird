@@ -30,8 +30,7 @@ btn.addEventListener("click",clicked)
 document.addEventListener("keydown",on)
 document.addEventListener("keyup",off)
 
-
-
+//Functions
 function clicked(){
     area.innerHTML = ""
     player.score = ""
@@ -59,19 +58,22 @@ function play(){
         if(player.score > 1200){
             player.speed = 8;
         }
+        if(player.score > 2200){
+            player.speed = 12
+        }
         movePipe(bird,top)
         movePipe(bird,btm)
-        if(keys.ArrowUp && player.y > 75){player.y -= player.speed}
-        if(keys.ArrowDown){player.y += player.speed}
-        if(keys.ArrowLeft && player.x > 0){player.x -= player.speed}
-        if(keys.ArrowRight){player.x += player.speed}
+        if(keys.ArrowUp && player.y > 75){player.y -= 5}
+        if(keys.ArrowDown){player.y += 5}
+        if(keys.ArrowLeft && player.x > 0){player.x -= 5}
+        if(keys.ArrowRight){player.x += 5}
         player.y += 3
         bird.style.top = player.y + "px"
         bird.style.left = player.x + "px"
         score.innerHTML = `Score:${player.score}`
+        window.requestAnimationFrame(play)
     }
     
-    window.requestAnimationFrame(play)
 }
 function ifCollide(ele,ene){
     let rA = ele.getBoundingClientRect()
@@ -106,6 +108,7 @@ function movePipe(ele,ene){
     ene.forEach(element => {
         if(ifCollide(ele,element)){
             console.log("hit")
+            ele.style.transform = "scaleY(-1)"
             endGame()
         }
         let leftu = element.offsetLeft;
