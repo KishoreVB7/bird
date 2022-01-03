@@ -34,7 +34,7 @@ body{
 }
 .area{
     position: absolute;
-    background-color: white;
+    background-color: skyblue;
     height: 100%;
     width: 100%;
     overflow: hidden;
