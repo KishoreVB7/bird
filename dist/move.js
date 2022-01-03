@@ -56,6 +56,9 @@ function play(){
     player.x = bird.offsetLeft
     if(player.play){
         player.score++
+        if(player.score > 1200){
+            player.speed = 8;
+        }
         movePipe(bird,top)
         movePipe(bird,btm)
         if(keys.ArrowUp && player.y > 75){player.y -= player.speed}
@@ -113,7 +116,7 @@ function movePipe(ele,ene){
             if(element.classList.contains("top")){
                 element.style.top = topu + "px"        
             }else{
-                element.style.top = (400 + topu) + "px"
+                element.style.top = (420 + topu) + "px"
             }             
         }
         element.style.left = leftu + "px"        
