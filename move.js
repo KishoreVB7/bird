@@ -108,6 +108,7 @@ function movePipe(ele,ene){
     ene.forEach(element => {
         if(ifCollide(ele,element)){
             console.log("hit")
+            ele.style.backgroundImage = "url('kt2.jpg')"
             ele.style.transform = "scaleY(-1)"
             endGame()
         }
